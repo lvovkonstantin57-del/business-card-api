@@ -1,0 +1,113 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Experience {
+  achievements: [String!]!
+  company: String!
+  id: ID!
+  location: String
+  period: Period!
+  position: String!
+}
+
+"""Link to a professional resource (GitHub, LinkedIn, ...)"""
+type Link {
+  id: ID!
+  kind: LinkKind!
+  label: String!
+  url: String!
+}
+
+"""Kind of a professional resource"""
+enum LinkKind {
+  EMAIL
+  GITHUB
+  LINKEDIN
+  OTHER
+  TELEGRAM
+  WEBSITE
+}
+
+"""Calendar date in ISO-8601 format: YYYY-MM-DD"""
+scalar LocalDate
+
+"""Employment period, computed from start/end dates"""
+type Period {
+  """Calendar months, both ends inclusive (CV convention)"""
+  durationMonths: Int!
+
+  """null for the current position"""
+  end: LocalDate
+  isCurrent: Boolean!
+  start: LocalDate!
+}
+
+"""Business card owner"""
+type Profile {
+  """
+  Brief "about me"
+  """
+  description: String!
+  email: String
+
+  """Most recent first"""
+  experience: [Experience!]!
+
+  """Short professional title"""
+  headline: String!
+  id: ID!
+  links: [Link!]!
+  location: String
+  name: String!
+  projects: [Project!]!
+  skills: [Skill!]!
+
+  """Stable human-readable identifier"""
+  slug: String!
+}
+
+type Project {
+  description: String
+  id: ID!
+  name: String!
+
+  """Source code repository"""
+  repositoryUrl: String
+  technologies: [String!]!
+
+  """Live demo / product page"""
+  url: String
+}
+
+type Query {
+  """Business card profile. Without `slug` returns the card owner."""
+  profile(slug: String): Profile!
+
+  """All profiles stored in the database"""
+  profiles: [Profile!]!
+}
+
+type Skill {
+  category: SkillCategory!
+  id: ID!
+  level: SkillLevel
+  name: String!
+}
+
+enum SkillCategory {
+  BACKEND
+  DATABASE
+  DEVOPS
+  FRONTEND
+  LANGUAGE
+  OTHER
+  TOOLING
+}
+
+enum SkillLevel {
+  ADVANCED
+  BASIC
+  EXPERT
+  INTERMEDIATE
+}

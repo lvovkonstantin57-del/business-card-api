@@ -1,0 +1,114 @@
+generator client {
+  provider      = "prisma-client-js"
+  // "native" for local runs, the musl build for the node:alpine Docker image.
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x", "linux-musl-arm64-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// Aggregate root: every other entity belongs to exactly one profile.
+model Profile {
+  id          Int      @id @default(autoincrement())
+  /// Human-readable stable key, used by the seed for idempotent upserts and by the API.
+  slug        String   @unique
+  name        String
+  headline    String
+  description String
+  location    String?
+  email       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  links      Link[]
+  skills     Skill[]
+  experience Experience[]
+  projects   Project[]
+}
+
+enum LinkKind {
+  GITHUB
+  LINKEDIN
+  TELEGRAM
+  EMAIL
+  WEBSITE
+  OTHER
+}
+
+model Link {
+  id        Int      @id @default(autoincrement())
+  profileId Int
+  kind      LinkKind
+  label     String
+  url       String
+  sortOrder Int      @default(0)
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId, sortOrder])
+}
+
+enum SkillCategory {
+  LANGUAGE
+  BACKEND
+  FRONTEND
+  DATABASE
+  DEVOPS
+  TOOLING
+  OTHER
+}
+
+enum SkillLevel {
+  BASIC
+  INTERMEDIATE
+  ADVANCED
+  EXPERT
+}
+
+model Skill {
+  id        Int           @id @default(autoincrement())
+  profileId Int
+  name      String
+  category  SkillCategory
+  level     SkillLevel?
+  sortOrder Int           @default(0)
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@unique([profileId, name])
+  @@index([profileId, category, sortOrder])
+}
+
+model Experience {
+  id           Int       @id @default(autoincrement())
+  profileId    Int
+  company      String
+  position     String
+  location     String?
+  startDate    DateTime  @db.Date
+  /// NULL means "current position".
+  endDate      DateTime? @db.Date
+  /// Ordered list of bullet points; a value object, so a Postgres array is enough.
+  achievements String[]
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId, startDate(sort: Desc)])
+}
+
+model Project {
+  id            Int      @id @default(autoincrement())
+  profileId     Int
+  name          String
+  description   String?
+  url           String?
+  repositoryUrl String?
+  technologies  String[]
+  sortOrder     Int      @default(0)
+
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId, sortOrder])
+}
