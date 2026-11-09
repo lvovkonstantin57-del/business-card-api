@@ -4,7 +4,7 @@
 
 **Стек:** TypeScript · Node.js 22 · NestJS 11 · GraphQL (Apollo Server 5, code-first) · Prisma 6 · PostgreSQL 17 · Docker
 
-- Демо (Apollo Sandbox): `TODO: https://<your-app>.onrender.com/graphql`
+- Демо (Apollo Sandbox): <https://business-card-api-caxj.onrender.com/graphql> — бесплатный план Render, первый запрос после простоя может занять до минуты
 - Исходный код: <https://github.com/lvovkonstantin57-del/business-card-api>
 
 ---
