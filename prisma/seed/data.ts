@@ -77,8 +77,23 @@ export const profiles: ProfileSeed[] = [
       { name: 'Английский язык', category: SkillCategory.OTHER },
       { name: 'Клиентский сервис', category: SkillCategory.OTHER },
     ],
-    // TODO: add work experience (company, position, dates, achievements).
-    experience: [],
+    experience: [
+      {
+        company: 'Фриланс',
+        position: 'Python-разработчик',
+        location: 'Удалённо',
+        startDate: '2026-01-01',
+        achievements: [
+          'По заказу стоматологической клиники «ДЕНТА» разработал бота в MAX: напоминает ' +
+            'пациентам о записи и позволяет подтвердить или отменить визит; бот работает в клинике',
+          'Интегрировал бота с медицинской программой «Феникс»: ответы пациентов передаются ' +
+            'в систему клиники автоматически',
+          'По заказу института разработал веб-приложение mpgu-timetable.ru с расписанием занятий, ' +
+            'данные берутся из Google Calendar API',
+          'Самостоятельно развернул приложение на Ubuntu VDS (Selectel), настроил домен и DNS (REG.RU)',
+        ],
+      },
+    ],
     projects: [
       {
         name: 'mpgu-timetable.ru',
