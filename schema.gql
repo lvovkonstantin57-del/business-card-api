@@ -98,6 +98,7 @@ type Skill {
 enum SkillCategory {
   BACKEND
   DATABASE
+  DESIGN
   DEVOPS
   FRONTEND
   LANGUAGE

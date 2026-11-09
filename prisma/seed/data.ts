@@ -40,74 +40,79 @@ export interface ProfileSeed {
 export const profiles: ProfileSeed[] = [
   {
     slug: 'me',
-    name: 'Konstantin Lvov',
-    headline: 'Backend Developer (Node.js / TypeScript)',
+    name: 'Константин Львов',
+    headline: 'Fullstack-разработчик, UI/UX-дизайнер',
     description:
-      'Backend developer focused on Node.js and TypeScript. I design APIs, ' +
-      'model data and care about maintainable architecture, tests and predictable deployments.',
-    location: 'TODO: City, Country',
-    email: 'lvovkonstantin57@gmail.com',
+      'Fullstack-разработчик и UI/UX-дизайнер. Делаю веб-приложения, ботов и интеграции ' +
+      'с внешними сервисами и сам разворачиваю их на своих серверах.',
     links: [
-      { kind: LinkKind.GITHUB, label: 'GitHub', url: 'https://github.com/TODO' },
-      { kind: LinkKind.LINKEDIN, label: 'LinkedIn', url: 'https://www.linkedin.com/in/TODO' },
-      { kind: LinkKind.TELEGRAM, label: 'Telegram', url: 'https://t.me/TODO' },
-      { kind: LinkKind.EMAIL, label: 'Email', url: 'mailto:lvovkonstantin57@gmail.com' },
+      {
+        kind: LinkKind.GITHUB,
+        label: 'GitHub',
+        url: 'https://github.com/lvovkonstantin57-del',
+      },
+      { kind: LinkKind.TELEGRAM, label: 'Telegram', url: 'https://t.me/l1ttleStich' },
     ],
     skills: [
-      { name: 'TypeScript', category: SkillCategory.LANGUAGE, level: SkillLevel.ADVANCED },
-      { name: 'JavaScript', category: SkillCategory.LANGUAGE, level: SkillLevel.ADVANCED },
-      { name: 'Node.js', category: SkillCategory.BACKEND, level: SkillLevel.ADVANCED },
-      { name: 'NestJS', category: SkillCategory.BACKEND, level: SkillLevel.ADVANCED },
-      { name: 'GraphQL', category: SkillCategory.BACKEND, level: SkillLevel.INTERMEDIATE },
-      { name: 'REST API design', category: SkillCategory.BACKEND, level: SkillLevel.ADVANCED },
-      { name: 'PostgreSQL', category: SkillCategory.DATABASE, level: SkillLevel.ADVANCED },
-      { name: 'Prisma', category: SkillCategory.DATABASE, level: SkillLevel.INTERMEDIATE },
-      { name: 'Redis', category: SkillCategory.DATABASE, level: SkillLevel.INTERMEDIATE },
-      { name: 'Docker', category: SkillCategory.DEVOPS, level: SkillLevel.INTERMEDIATE },
-      {
-        name: 'CI/CD (GitHub Actions)',
-        category: SkillCategory.DEVOPS,
-        level: SkillLevel.INTERMEDIATE,
-      },
-      { name: 'Git', category: SkillCategory.TOOLING, level: SkillLevel.ADVANCED },
-      { name: 'Jest', category: SkillCategory.TOOLING, level: SkillLevel.INTERMEDIATE },
+      { name: 'Python', category: SkillCategory.LANGUAGE },
+      { name: 'JavaScript', category: SkillCategory.LANGUAGE },
+      { name: 'TypeScript', category: SkillCategory.LANGUAGE },
+      { name: 'HTML/CSS', category: SkillCategory.FRONTEND },
+      { name: 'UI/UX-дизайн', category: SkillCategory.DESIGN },
+      { name: 'Node.js', category: SkillCategory.BACKEND },
+      { name: 'NestJS', category: SkillCategory.BACKEND },
+      { name: 'GraphQL', category: SkillCategory.BACKEND },
+      { name: 'Интеграция с внешними системами (REST API)', category: SkillCategory.BACKEND },
+      { name: 'Google Calendar API', category: SkillCategory.BACKEND },
+      { name: 'MAX Bot API', category: SkillCategory.BACKEND },
+      { name: 'PostgreSQL', category: SkillCategory.DATABASE },
+      { name: 'Prisma', category: SkillCategory.DATABASE },
+      { name: 'Linux (Ubuntu)', category: SkillCategory.DEVOPS },
+      { name: 'Docker', category: SkillCategory.DEVOPS },
+      { name: 'Развёртывание на VDS (Selectel)', category: SkillCategory.DEVOPS },
+      { name: 'Настройка домена и DNS (REG.RU)', category: SkillCategory.DEVOPS },
+      { name: 'Git / GitLab', category: SkillCategory.TOOLING },
+      { name: 'Home Assistant', category: SkillCategory.OTHER },
+      // TODO: add the level, e.g. "Английский язык (B2)"
+      { name: 'Английский язык', category: SkillCategory.OTHER },
+      { name: 'Клиентский сервис', category: SkillCategory.OTHER },
     ],
-    experience: [
-      {
-        company: 'TODO: Current Company',
-        position: 'Backend Developer',
-        location: 'Remote',
-        startDate: '2023-03-01',
-        achievements: [
-          'TODO: Designed and shipped a GraphQL API used by N clients',
-          'TODO: Cut p95 latency of the main endpoint from X ms to Y ms',
-          'TODO: Introduced integration tests and CI, reducing regressions',
-        ],
-      },
-      {
-        company: 'TODO: Previous Company',
-        position: 'Junior Node.js Developer',
-        startDate: '2021-06-01',
-        endDate: '2023-02-28',
-        achievements: [
-          'TODO: Built internal REST services on Express/NestJS',
-          'TODO: Migrated legacy data access to an ORM with typed queries',
-        ],
-      },
-    ],
+    // TODO: add work experience (company, position, dates, achievements).
+    experience: [],
     projects: [
       {
-        name: 'Business Card API',
-        description: 'This service: NestJS + GraphQL + Prisma + PostgreSQL, packaged with Docker.',
-        repositoryUrl: 'https://github.com/TODO/business-card-api',
-        technologies: ['NestJS', 'GraphQL', 'Prisma', 'PostgreSQL', 'Docker'],
+        name: 'mpgu-timetable.ru',
+        description:
+          'Веб-приложение с расписанием занятий для учебной группы; данные берутся из Google Calendar.',
+        url: 'https://mpgu-timetable.ru',
+        // TODO: repositoryUrl, web framework
+        technologies: ['Python', 'Google Calendar API', 'Ubuntu VDS (Selectel)'],
       },
       {
-        name: 'TODO: Another project',
-        description: 'TODO: one-line description',
-        url: 'https://example.com',
-        repositoryUrl: 'https://github.com/TODO/another-project',
-        technologies: ['TypeScript', 'Node.js'],
+        name: 'Бот для стоматологии «ДЕНТА» в MAX',
+        description:
+          'Напоминает пациентам о записи, позволяет подтвердить или отменить визит ' +
+          'и передаёт ответ в программу «Феникс».',
+        technologies: ['Python', 'MAX Bot API', 'Интеграция с «Феникс»'],
+      },
+      {
+        name: 'Умный дом на Home Assistant',
+        description:
+          'Home Assistant в Docker на собственном сервере, интеграция с Яндекс Станцией, ' +
+          'голосовое управление Spotify на Mac.',
+        technologies: ['Docker', 'Home Assistant', 'Python'],
+      },
+      {
+        name: 'Медицинский AI-хакатон (октябрь 2026)',
+        description: 'Работающий прототип с пользовательским интерфейсом и защита перед жюри.',
+        technologies: [],
+      },
+      {
+        name: 'Business Card API',
+        description:
+          'Цифровая визитка: GraphQL API на NestJS + Prisma + PostgreSQL, упакованное в Docker.',
+        repositoryUrl: 'https://github.com/lvovkonstantin57-del/business-card-api',
+        technologies: ['TypeScript', 'NestJS', 'GraphQL', 'Prisma', 'PostgreSQL', 'Docker'],
       },
     ],
   },

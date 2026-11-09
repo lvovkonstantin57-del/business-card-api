@@ -50,8 +50,10 @@ describe('GraphQL profile (e2e)', () => {
     const { profile } = res.body.data;
     expect(profile.name).toEqual(expect.any(String));
     expect(profile.skills.length).toBeGreaterThan(0);
-    expect(profile.experience.length).toBeGreaterThan(0);
-    expect(profile.experience[0].period.start).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(Array.isArray(profile.experience)).toBe(true);
+    for (const item of profile.experience) {
+      expect(item.period.start).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    }
     expect(profile.projects.length).toBeGreaterThan(0);
   });
 

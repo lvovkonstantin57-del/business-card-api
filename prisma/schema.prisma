@@ -54,6 +54,7 @@ enum SkillCategory {
   LANGUAGE
   BACKEND
   FRONTEND
+  DESIGN
   DATABASE
   DEVOPS
   TOOLING
