@@ -73,8 +73,7 @@ export const profiles: ProfileSeed[] = [
       { name: 'Настройка домена и DNS (REG.RU)', category: SkillCategory.DEVOPS },
       { name: 'Git / GitLab', category: SkillCategory.TOOLING },
       { name: 'Home Assistant', category: SkillCategory.OTHER },
-      // TODO: add the level, e.g. "Английский язык (B2)"
-      { name: 'Английский язык', category: SkillCategory.OTHER },
+      { name: 'Английский язык (B2)', category: SkillCategory.OTHER },
       { name: 'Клиентский сервис', category: SkillCategory.OTHER },
     ],
     experience: [
