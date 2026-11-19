@@ -1,11 +1,30 @@
-# Business Card API
+<div align="center">
 
-Цифровая визитка в виде GraphQL API: профиль, ссылки, навыки, опыт работы и проекты.
+# 🪪 Business Card API
 
-**Стек:** TypeScript · Node.js 22 · NestJS 11 · GraphQL (Apollo Server 5, code-first) · Prisma 6 · PostgreSQL 17 · Docker
+**Цифровая визитка в виде GraphQL API: профиль, ссылки, навыки, опыт работы и проекты**
 
-- Демо (Apollo Sandbox): <https://business-card-api-caxj.onrender.com/graphql> — бесплатный план Render, первый запрос после простоя может занять до минуты
-- Исходный код: <https://github.com/lvovkonstantin57-del/business-card-api>
+[![CI](https://github.com/lvovkonstantin57-del/business-card-api/actions/workflows/ci.yml/badge.svg)](https://github.com/lvovkonstantin57-del/business-card-api/actions/workflows/ci.yml)
+[![Демо](https://img.shields.io/badge/демо-Apollo%20Sandbox-311C87?style=flat-square&logo=apollographql&logoColor=white)](https://business-card-api-caxj.onrender.com/graphql)
+
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![NestJS](https://img.shields.io/badge/NestJS%2011-E0234E?style=flat-square&logo=nestjs&logoColor=white)
+![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=flat-square&logo=graphql&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma%206-2D3748?style=flat-square&logo=prisma&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL%2017-4169E1?style=flat-square&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+
+</div>
+
+## ✨ Что внутри
+
+- **Code-first GraphQL** на NestJS 11 и Apollo Server 5
+- **DataLoader:** любой запрос `profiles { links skills experience projects }` — ровно 5 SQL-запросов, без N+1 (проверяется e2e-тестом)
+- **Prisma 6 + PostgreSQL 17**, миграции и идемпотентный сид при старте контейнера
+- **Unit- и e2e-тесты**, CI в GitHub Actions с PostgreSQL-сервисом и сборкой Docker-образа
+- **Деплой на Render** через Blueprint `render.yaml`
+
+> **Демо:** <https://business-card-api-caxj.onrender.com/graphql> — бесплатный план Render, первый запрос после простоя может занять до минуты.
 
 ---
 
