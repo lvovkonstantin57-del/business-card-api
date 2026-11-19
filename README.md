@@ -1,12 +1,9 @@
+<p align="center"><img src=".github/banner.svg" alt="Business Card API" width="100%"></p>
+
 <div align="center">
-
-# 🪪 Business Card API
-
-**Цифровая визитка в виде GraphQL API: профиль, ссылки, навыки, опыт работы и проекты**
 
 [![CI](https://github.com/lvovkonstantin57-del/business-card-api/actions/workflows/ci.yml/badge.svg)](https://github.com/lvovkonstantin57-del/business-card-api/actions/workflows/ci.yml)
 [![Демо](https://img.shields.io/badge/демо-Apollo%20Sandbox-311C87?style=flat-square&logo=apollographql&logoColor=white)](https://business-card-api-caxj.onrender.com/graphql)
-
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![NestJS](https://img.shields.io/badge/NestJS%2011-E0234E?style=flat-square&logo=nestjs&logoColor=white)
 ![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=flat-square&logo=graphql&logoColor=white)
@@ -16,7 +13,11 @@
 
 </div>
 
-## ✨ Что внутри
+```graphql
+# Цифровая визитка в виде GraphQL API: профиль, ссылки, навыки, опыт работы и проекты
+```
+
+## `{ features }` Что внутри
 
 - **Code-first GraphQL** на NestJS 11 и Apollo Server 5
 - **DataLoader:** любой запрос `profiles { links skills experience projects }` — ровно 5 SQL-запросов, без N+1 (проверяется e2e-тестом)
@@ -28,7 +29,7 @@
 
 ---
 
-## Быстрый старт
+## `mutation { start }` Быстрый старт
 
 Нужен только Docker:
 
@@ -62,7 +63,7 @@ e2e-тест в том числе проверяет, что запрос `profi
 
 ---
 
-## Пример запроса
+## `query` Пример запроса
 
 ```graphql
 query {
@@ -89,7 +90,7 @@ query {
 
 ---
 
-## Архитектура
+## `schema` Архитектура
 
 ```
 src/
